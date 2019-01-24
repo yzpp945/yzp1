@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.yzpjy.dao.UserDao">
+    <!--<resultMap id="resultMap" type="com.yzpjy.domain.User">
+        <id property="userId" column="id"></id>
+        <result property="userName" column="username"></result>
+        <result property="userBirthday" column="birthday"></result>
+        <result property="userSex" column="sex"></result>
+        <result property="userAddress" column="address"></result>
+    </resultMap>-->
+
+
+    <!--查询所有用户-->
+    <select id="findAll" parameterType="user" resultType="com.yzpjy.domain.User" >
+        select * from USER where username = #{username}
+    </select>
+    <!--保存用户-->
+    <insert id="save" parameterType="com.yzpjy.domain.User" >
+    <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+        select last_insert_id()
+    </selectKey>
+        insert into USER (username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address})
+    </insert>
+    <!--更新用户-->
+    <update id="updateUser"   parameterType="com.yzpjy.domain.User">
+        UPDATE user set username=#{username} where id=#{id}
+    </update>
+    <!--删除用户-->
+    <delete id="deleteUser" parameterType="int">
+        delete from USER where id = #{id}
+    </delete>
+    <!--查找具体用户-->
+    <select id="findOne"  parameterType="int" resultType="com.yzpjy.domain.User">
+        select * from user where id = #{uid}
+    </select>
+    <!--模糊查询用户-->
+    <select id="likeFind" parameterType="String" resultType="com.yzpjy.domain.User">
+        select * from user where username like #{name}
+        <!--select * from user where username like '%${value}%'-->
+    </select>
+    <!--查询一个总数-->
+    <select id="findTotal" resultType="int">
+        select count(*) from USER
+    </select>
+    <select id="likeFindByVo" parameterType="com.yzpjy.domain.QueryVo" resultType="com.yzpjy.domain.User">
+        select * from user where username like #{user.username}
+        <!--select * from user where username like '%${value}%'-->
+    </select>
+</mapper>
