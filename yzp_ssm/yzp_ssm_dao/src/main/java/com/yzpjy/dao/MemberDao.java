@@ -15,4 +15,6 @@ public interface MemberDao {
     public Member findOne_byOid(String id) throws Exception;
 	
 	public void findAll() throws Exception;
+	
+	public void findOne() throws Exception;
 }
