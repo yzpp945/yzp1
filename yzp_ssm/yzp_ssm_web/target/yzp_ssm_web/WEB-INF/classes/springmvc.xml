@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 配置创建 spring 容器要扫描springmvc的包 -->
+    <context:component-scan base-package="com.yzpjy">
+            <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 配置视图解析器 -->
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/pages/"></property>
+    <property name="suffix" value=".jsp"></property>
+   </bean>
+
+    <!--
+        支持AOP的注解支持，AOP底层使用代理技术
+        JDK动态代理，要求必须有接口
+        cglib代理，生成子类对象，proxy-target-class="true" 默认使用cglib的方式
+    -->
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+    <!--&lt;!&ndash;1.代理方式设置为 cglib，默认false，则必须通过实现某个接口才能实现增强 &ndash;&gt;-->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
+    <!--&lt;!&ndash;2.配置文件中把须增强注解所在包扫描注入，或者配置 bean&ndash;&gt;-->
+    <!--<context:component-scan base-package="com.yzpjy.controller"/>-->
+    <!--&lt;!&ndash;3.配置文件中把@Aspect注解所在类对应包扫描注入 或者配置bean&ndash;&gt;-->
+    <!--<context:component-scan base-package="com.yzpjy.controller"/>-->
+    <!--&lt;!&ndash; -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+    <!--&lt;!&ndash;作者：AK_GCC&ndash;&gt;-->
+    <!--&lt;!&ndash;来源：CSDN&ndash;&gt;-->
+    <!--&lt;!&ndash;原文：https://blog.csdn.net/akaiyijian001/article/details/82885704&ndash;&gt;-->
+    <!--&lt;!&ndash;版权声明：本文为博主原创文章，转载请附上博文链接！&ndash;&gt;-->
+
+    <mvc:default-servlet-handler/>
+
+
+    <mvc:annotation-driven />
+        </beans>
