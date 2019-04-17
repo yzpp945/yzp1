@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:43:18 +0800] "GET /Day14_maven_web HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:43:18 +0800] "GET /Day14_maven_web/ HTTP/1.1" 200 119 http-bio-8080-exec-2 539
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:43:19 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:43:21 +0800] "GET /Day14_maven_web/items/findbyid HTTP/1.1" 200 646 http-bio-8080-exec-4 635
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:46:09 +0800] "GET /Day14_maven_web HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:46:09 +0800] "GET /Day14_maven_web/ HTTP/1.1" 200 119 http-bio-8080-exec-2 44
+0:0:0:0:0:0:0:1 - - [23/Jan/2019:16:46:12 +0800] "GET /Day14_maven_web/items/findbyid HTTP/1.1" 200 646 http-bio-8080-exec-3 491
