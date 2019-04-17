@@ -13,4 +13,6 @@ public interface MemberDao {
      */
     @Select("select * from member where id = #{#memberId}")
     public Member findOne_byOid(String id) throws Exception;
+	
+	public void findAll() throws Exception;
 }
